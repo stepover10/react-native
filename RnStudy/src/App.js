@@ -14,7 +14,6 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
-
 const App = () => {
   const [loaded, setLoaded] = React.useState(false);
 

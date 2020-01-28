@@ -1,15 +1,19 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProductItem from './ProductItem';
 import styled from 'styled-components/native';
+import { ADD_TO_CART, addToCart } from '../../store/actions/cart';
 
 const ProductsOverviewScreen = props => {
   const products = useSelector(state => state.products.availableProducts);
 
-  const _addProductCart = () => {
-    console.log('카트에 상품을 담자');
-    
+  const dispatch = useDispatch();
+  const _addProductCart = (product) => e => {
+    console.log(product);
+    dispatch(
+      addToCart({product})
+    )
   }
 
   return (    
@@ -25,7 +29,7 @@ const ProductsOverviewScreen = props => {
                 productId: itemData.item.id
               })
             }}
-            onCartAdd={_addProductCart}
+            onCartAdd={_addProductCart(itemData.item)}
           /> 
       }      
     />   
