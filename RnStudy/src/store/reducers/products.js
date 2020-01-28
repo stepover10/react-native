@@ -6,5 +6,6 @@ const initialState = {
 };
 
 export default (state=initialState, action) => {
+  console.log("PRODUCT_STORE", action);
   return state;
 }
