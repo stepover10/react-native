@@ -7,13 +7,14 @@ import { ADD_TO_CART, addToCart } from '../../store/actions/cart';
 
 const ProductsOverviewScreen = props => {
   const products = useSelector(state => state.products.availableProducts);
-
   const dispatch = useDispatch();
+
   const _addProductCart = (product) => e => {
     console.log(product);
-    dispatch(
-      addToCart({product})
-    )
+    dispatch( {
+      type: ADD_TO_CART,
+      product
+    });
   }
 
   return (    
